@@ -1,8 +1,8 @@
 <script lang="ts">
     export let title: string = "";
     export let as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" = "h1";
-
-    let cachedTitle = title;
+    export let afterTitle: string = title;
+    export let speed: number = 30;
 
     function effect(e) {
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -25,16 +25,16 @@
             }
 
             iteration += 1 / 3;
-        }, 30);
+        }, speed);
     }
 </script>
 
 <!-- svelte-ignore a11y-mouse-events-have-key-events -->
 <svelte:element
     this={as}
-    data-value={title}
+    data-value={afterTitle}
     on:mouseover={effect}
     class={$$props.class}
 >
-    {cachedTitle}
+    {title}
 </svelte:element>
