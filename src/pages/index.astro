@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon";
 import Card from "@components/Card.astro";
-import Title from "@components/Title.svelte";
+import Title from "../components/Title.svelte";
 import Layout from "../layout/Layout.astro";
 
 const repos = await fetch("https://api.github.com/users/pwnedu/repos").then(
