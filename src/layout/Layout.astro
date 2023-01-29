@@ -1,0 +1,62 @@
+---
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import "../styles/master.css";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Pwnedu</title>
+    </head>
+    <body class="flex flex-col text-white bg-black">
+        <Header />
+        <main class="flex-grow h-[200vh] px-4 py-10 max-w-7xl w-full mx-auto">
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<script>
+    // let options = {
+    //     rootMargin: "0px",
+    //     threshold: 0.0,
+    // };
+
+    // let callback = (entries, observer) => {
+    //     entries.forEach((entry) => {
+    //         if (entry.isIntersecting) {
+    //             const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //             let interval = null;
+    //             let iteration = 0;
+    //             interval = setInterval(() => {
+    //                 entry.target.innerText = entry.target.innerText
+    //                     .split("")
+    //                     .map((letter, index) => {
+    //                         if (index < iteration) {
+    //                             return entry.target.dataset.value[index];
+    //                         }
+
+    //                         return letters[Math.floor(Math.random() * 26)];
+    //                     })
+    //                     .join("");
+
+    //                 if (iteration >= entry.target.dataset.value.length) {
+    //                     clearInterval(interval);
+    //                 }
+
+    //                 iteration += 1 / 3;
+    //             }, 30);
+    //         }
+    //     });
+    // };
+
+    // let observer = new IntersectionObserver(callback, options);
+
+    // let target = document.querySelector(".test");
+    // observer.observe(target);
+</script>
