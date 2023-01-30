@@ -3,6 +3,7 @@ import { Icon } from "astro-icon";
 import Card from "@components/Card.astro";
 import Title from "../components/Title.svelte";
 import Layout from "../layout/Layout.astro";
+import ItchSection from "@components/ItchSection.svelte";
 
 const repos = await fetch("https://api.github.com/users/pwnedu/repos").then(
     (res) => res.json()
@@ -69,10 +70,22 @@ const socials = [
         icon: "mdi:github",
     },
 ];
+
+const itchio = await fetch(
+    `https://itch.io/api/1/${import.meta.env.ITCH_API}/my-games`
+).then((res) => res.json());
+
+const updated = itchio["games"].filter(async (game) => {
+    const test = await fetch(game.url);
+    const text = await test.text();
+    return text.includes("You do not have access to this page");
+});
+
+console.log(updated);
 ---
 
 <Layout>
-    <div class="space-y-8">
+    <div class="flex flex-col gap-8">
         <section class="flex gap-4 group">
             <div class="rounded-md overflow-hidden hidden sm:block relative">
                 <img src="/images/avatar.png" class="w-72 h-96" />
@@ -134,5 +147,7 @@ const socials = [
                 {reposTest.map((repo) => <Card repo={repo} />)}
             </ul>
         </section>
+
+        <ItchSection games={updated} client:load />
     </div>
 </Layout>
