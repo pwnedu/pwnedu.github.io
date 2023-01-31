@@ -7,10 +7,13 @@ import GithubSection from "@components/GithubSection.svelte";
 
 let repos = [];
 
-if (import.meta.env.PROD) {
+if (import.meta.env.DEV) {
     repos = await fetch("https://api.github.com/users/pwnedu/repos").then(
         (res) => res.json()
     );
+    repos
+        .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+        .filter((repo) => repo.fork === false);
 }
 
 const reposTest = [

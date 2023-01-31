@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { flip } from "svelte/animate";
     import Language from "./icons/Language.svelte";
     import Star from "./icons/Star.svelte";
     import Watcher from "./icons/Watcher.svelte";
@@ -26,7 +27,6 @@
 </script>
 
 <a
-    data-card
     class="flex flex-col p-4 transition-all duration-150 ease-linear outline outline-2 outline-secondary/10 hover:outline-secondary/20 hover:-translate-y-2 group"
     href={url}
     target="_blank"

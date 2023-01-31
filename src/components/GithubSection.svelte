@@ -7,17 +7,12 @@
     export let repos = [];
     export let interval = 120000;
 
-    $: repos
-        .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
-        .filter((repo) => repo.fork === false);
-
     onMount(async () => {
         if (import.meta.env.PROD) {
             setInterval(async () => {
                 repos = await fetch(
                     "https://api.github.com/users/pwnedu/repos"
                 ).then((res) => res.json());
-                console.log("Fetched new github repos");
             }, interval);
         }
     });
@@ -37,11 +32,11 @@
         />
         <button
             class="p-1 font-mono font-bold bg-accent text-accent-invert"
-            on:click={() => shuffle()}>Shuffle</button
+            on:click={shuffle}>Shuffle</button
         >
     </div>
     <ul class="grid grid-flow-row gap-4 md:grid-cols-2">
-        {#each repos as repo (repo.name)}
+        {#each repos as repo (repo.id)}
             <div animate:flip={{ duration: 200 }}>
                 <Card {repo} />
             </div>
