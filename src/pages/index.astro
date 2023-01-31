@@ -7,7 +7,7 @@ import GithubSection from "@components/GithubSection.svelte";
 
 let repos = [];
 
-if (import.meta.env.DEV) {
+if (import.meta.env.PROD) {
     repos = await fetch("https://api.github.com/users/pwnedu/repos").then(
         (res) => res.json()
     );
