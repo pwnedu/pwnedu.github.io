@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Test from "./Test.svelte";
     import Title from "./Title.svelte";
 
     export let game;
@@ -9,12 +10,16 @@
         <img
             src={game.cover_url}
             alt={game.title}
-            class="w-full max-w-full object-cover group-hover:scale-110 transition-transform duration-150 ease-in-out"
+            class="object-cover w-full max-w-full transition-transform duration-150 ease-in-out group-hover:scale-110"
         />
     </div>
-    <Title
+    <!-- <Title
         title={game.title}
         speed={10}
-        class=" bg-white text-black p-2 font-mono font-bold"
-    />
+        fireOnce={true}
+        class="p-2 font-mono font-bold bg-accent text-accent-invert"
+    /> -->
+    <span class="block p-2 font-mono font-bold bg-accent text-accent-invert"
+        >{game.title}</span
+    >
 </a>

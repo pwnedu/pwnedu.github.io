@@ -1,11 +1,16 @@
 ---
+import ThemeToggler from "./ThemeToggler.svelte";
 import Title from "./Title.svelte";
 ---
 
-<header class="flex justify-center p-4 shadow-2xl shadow-white/10 items-center">
-    <Title
-        title="Pwnedu"
-        class="px-4 font-mono text-2xl font-bold cursor-default hover:bg-white hover:text-black"
-        client:load
-    />
+<header class="flex items-center p-4 shadow-2xl shadow-secondary/10">
+    <div class="flex items-center justify-between w-full mx-auto max-w-7xl">
+        <Title
+            title="Pwnedu"
+            class="px-4 font-mono text-2xl font-bold cursor-default hover:bg-accent hover:text-accent-invert"
+            client:load
+            delay={10000000}
+        />
+        <ThemeToggler client:load />
+    </div>
 </header>

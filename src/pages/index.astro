@@ -1,17 +1,21 @@
 ---
 import { Icon } from "astro-icon";
-import Card from "@components/Card.astro";
 import Title from "../components/Title.svelte";
 import Layout from "../layout/Layout.astro";
 import ItchSection from "@components/ItchSection.svelte";
+import GithubSection from "@components/GithubSection.svelte";
 
-const repos = await fetch("https://api.github.com/users/pwnedu/repos").then(
-    (res) => res.json()
-);
+let repos = [];
+
+if (import.meta.env.PROD) {
+    repos = await fetch("https://api.github.com/users/pwnedu/repos").then(
+        (res) => res.json()
+    );
+}
 
 const reposTest = [
     {
-        name: "Repo Name",
+        name: "Repo Name 1",
         description: "Description Test",
         stargazers_count: 6,
         watchers_count: 6,
@@ -19,7 +23,7 @@ const reposTest = [
         language: "HTML",
     },
     {
-        name: "Repo Name",
+        name: "Repo Name 2",
         description: "Description Test",
         stargazers_count: 6,
         watchers_count: 6,
@@ -27,7 +31,7 @@ const reposTest = [
         language: "HTML",
     },
     {
-        name: "Repo Name",
+        name: "Repo Name 3",
         description: "Description Test",
         stargazers_count: 6,
         watchers_count: 6,
@@ -35,7 +39,7 @@ const reposTest = [
         language: "HTML",
     },
     {
-        name: "Repo Name",
+        name: "Repo Name 4",
         description: "Description Test",
         stargazers_count: 6,
         watchers_count: 6,
@@ -43,7 +47,7 @@ const reposTest = [
         language: "HTML",
     },
     {
-        name: "Repo Name",
+        name: "Repo Name 5",
         description: "Description Test",
         stargazers_count: 6,
         watchers_count: 6,
@@ -51,7 +55,7 @@ const reposTest = [
         language: "HTML",
     },
     {
-        name: "Repo Name",
+        name: "Repo Name 6",
         description: "Description Test",
         stargazers_count: 6,
         watchers_count: 6,
@@ -75,22 +79,16 @@ const itchio = await fetch(
     `https://itch.io/api/1/${import.meta.env.ITCH_API}/my-games`
 ).then((res) => res.json());
 
-const updated = itchio["games"].filter(async (game) => {
-    const test = await fetch(game.url);
-    const text = await test.text();
-    return text.includes("You do not have access to this page");
-});
-
-console.log(updated);
+const updated = itchio["games"].filter((game) => game.published === true);
 ---
 
 <Layout>
     <div class="flex flex-col gap-8">
-        <section class="flex gap-4 group">
-            <div class="rounded-md overflow-hidden hidden sm:block relative">
+        <section class="flex gap-4 group/main">
+            <div class="relative hidden overflow-hidden rounded-md sm:block">
                 <img src="/images/avatar.png" class="w-72 h-96" />
                 <div
-                    class="absolute inset-0 bg-black bg-opacity-70 group-hover:bg-opacity-0 transition-all duration-150 ease-linear"
+                    class="absolute inset-0 transition-all duration-150 ease-linear bg-primary bg-opacity-70 group-hover/main:bg-opacity-0"
                 >
                 </div>
             </div>
@@ -101,21 +99,21 @@ console.log(updated);
                         <Title
                             title="Kiltec"
                             afterTitle="Pwnedu"
-                            class="font-mono inline-block hover:bg-white hover:text-black font-bold cursor-default"
+                            class="inline-block font-mono font-bold cursor-default hover:bg-accent hover:text-accent-invert"
                             client:load
                         />
                     </span>
                     <p class="text-xl">
-                        <span class="font-semibold font-mono">Developer</span>.
+                        <span class="font-mono font-semibold">Developer</span>.
                         I create <a
-                            class="font-semibold underline underline-offset-4 hover:text-white/95 transition-colors duration-150 ease-linear font-mono"
+                            class="font-mono font-semibold underline transition-colors duration-150 ease-linear underline-offset-4 hover:text-white/95"
                             href="">open-source projects</a
                         > to make development easier for everyone.
                     </p>
                 </div>
                 <div class="flex flex-col gap-2">
                     <Title
-                        class="self-start font-mono text-2xl font-bold cursor-default hover:bg-white hover:text-black"
+                        class="self-start font-mono text-2xl font-bold cursor-default hover:bg-accent hover:text-accent-invert"
                         title="Contact me"
                         speed={10}
                         client:load
@@ -123,10 +121,10 @@ console.log(updated);
                     <div class="flex gap-2">
                         {
                             socials.map((social) => (
-                                <button class="transition-colors duration-150 ease-in-out rounded-md cursor-pointer hover:bg-white/80 active:bg-white group">
+                                <button class="p-1 transition-colors duration-150 ease-in-out rounded-md cursor-pointer hover:bg-secondary/80 active:bg-secondary group">
                                     <Icon
                                         name={social.icon}
-                                        class="w-24 h-24 transition-colors duration-150 ease-in-out hover:text-black"
+                                        class="w-12 h-12 transition-colors duration-150 ease-in-out group-hover:text-primary group-hover:animate-bounce"
                                     />
                                 </button>
                             ))
@@ -136,18 +134,19 @@ console.log(updated);
             </div>
         </section>
 
-        <section class="space-y-4">
-            <Title
-                class="inline-block px-4 font-mono text-2xl font-bold cursor-default hover:bg-white hover:text-black"
-                title="GitHub Projects"
-                speed={20}
-                client:load
-            />
-            <ul class="grid grid-flow-row gap-4 md:grid-cols-2">
-                {reposTest.map((repo) => <Card repo={repo} />)}
-            </ul>
-        </section>
+        <GithubSection
+            repos={import.meta.env.PROD ? repos : reposTest}
+            client:load
+        />
 
         <ItchSection games={updated} client:load />
     </div>
 </Layout>
+
+<!-- <script>
+    const res = await fetch(
+        "https://api.allorigins.win/raw?url=https://itch.io/api/1/cKeF3YA1A6LZDWg200Cdb65RcRVss5CJqMGfSNQz/my-games"
+    );
+    const ress = await res.json();
+    console.log(ress);
+</script> -->

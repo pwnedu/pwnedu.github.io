@@ -11,13 +11,20 @@
 </script>
 
 <section class="space-y-4">
-    <Title
-        class="inline-block px-4 font-mono text-2xl font-bold cursor-default hover:bg-white hover:text-black"
-        title="Game Projects"
-        speed={20}
-    />
+    <div class="flex justify-between">
+        <Title
+            class="inline-block px-4 font-mono text-2xl font-bold cursor-default hover:bg-accent hover:text-accent-invert"
+            title="Game Projects"
+            speed={20}
+        />
+        <button
+            class="p-1 font-mono font-bold bg-accent text-accent-invert"
+            on:click={() => shuffle()}>Shuffle</button
+        >
+    </div>
+
     <ul class="grid grid-flow-row gap-4 sm:grid-cols-2">
-        {#each games as game (game.title)}
+        {#each games as game (game.id)}
             <li animate:flip={{ duration: 200 }}>
                 <GameCard {game} />
             </li>
