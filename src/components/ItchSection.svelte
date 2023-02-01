@@ -23,7 +23,7 @@
         >
     </div>
 
-    <ul class="grid grid-flow-row gap-4 sm:grid-cols-2">
+    <ul class="grid grid-flow-row gap-4 sm:grid-cols-3">
         {#each games as game (game.id)}
             <li animate:flip={{ duration: 200 }}>
                 <GameCard {game} />

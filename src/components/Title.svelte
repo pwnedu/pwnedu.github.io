@@ -12,7 +12,6 @@
     let interval;
 
     function effect(e) {
-        console.log(element.dataset.value);
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         let iteration = 0;

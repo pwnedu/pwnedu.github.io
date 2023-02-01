@@ -1,155 +1,32 @@
 ---
-import { Icon } from "astro-icon";
-import Title from "../components/Title.svelte";
 import Layout from "../layout/Layout.astro";
 import ItchSection from "@components/ItchSection.svelte";
 import GithubSection from "@components/GithubSection.svelte";
+import HeroSection from "@components/HeroSection.astro";
+import getAllGithubRepos from "@helpers/fetchGithubProjects";
+import { repoDummy } from "src/data/repoDummy";
+import getAllItchProjects from "@helpers/fetchItchProjects";
 
-let repos = [];
+let repos = import.meta.env.PROD ? await getAllGithubRepos() : repoDummy;
 
-if (import.meta.env.PROD) {
-    repos = await fetch("https://api.github.com/users/pwnedu/repos").then(
-        (res) => res.json()
-    );
-    repos
-        .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
-        .filter((repo) => repo.fork === false);
-}
-
-const reposTest = [
-    {
-        name: "Repo Name 1",
-        description: "Description Test",
-        stargazers_count: 6,
-        watchers_count: 6,
-        html_url: "google.com",
-        language: "HTML",
-    },
-    {
-        name: "Repo Name 2",
-        description: "Description Test",
-        stargazers_count: 6,
-        watchers_count: 6,
-        html_url: "google.com",
-        language: "HTML",
-    },
-    {
-        name: "Repo Name 3",
-        description: "Description Test",
-        stargazers_count: 6,
-        watchers_count: 6,
-        html_url: "google.com",
-        language: "HTML",
-    },
-    {
-        name: "Repo Name 4",
-        description: "Description Test",
-        stargazers_count: 6,
-        watchers_count: 6,
-        html_url: "google.com",
-        language: "HTML",
-    },
-    {
-        name: "Repo Name 5",
-        description: "Description Test",
-        stargazers_count: 6,
-        watchers_count: 6,
-        html_url: "google.com",
-        language: "HTML",
-    },
-    {
-        name: "Repo Name 6",
-        description: "Description Test",
-        stargazers_count: 6,
-        watchers_count: 6,
-        html_url: "google.com",
-        language: "HTML",
-    },
-];
-
-const socials = [
-    {
-        name: "Discord",
-        icon: "ic:baseline-discord",
-    },
-    {
-        name: "GitHub",
-        icon: "mdi:github",
-    },
-];
-
-const itchio = await fetch(
-    `https://itch.io/api/1/${import.meta.env.ITCH_API}/my-games`
-).then((res) => res.json());
-
-const updated = itchio["games"].filter((game) => game.published === true);
+const itchio = await getAllItchProjects();
 ---
 
 <Layout>
     <div class="flex flex-col gap-8">
-        <section class="flex gap-4 group/main">
-            <div class="relative hidden overflow-hidden rounded-md sm:block">
-                <img src="/images/avatar.png" class="w-72 h-96" />
-                <div
-                    class="absolute inset-0 transition-all duration-150 ease-linear border-2 border-accent group-hover/main:border-4"
-                >
-                </div>
-            </div>
-            <div class="flex flex-col justify-between gap-12 sm:gap-0">
-                <div class="flex flex-col gap-2">
-                    <span class="text-4xl">
-                        Hey <span>&#128075;</span> I am
-                        <Title
-                            title="Kiltec"
-                            afterTitle="Pwnedu"
-                            class="inline-block font-mono font-bold cursor-default hover:bg-accent hover:text-accent-invert"
-                            client:load
-                        />
-                    </span>
-                    <p class="text-xl">
-                        <span class="font-mono font-semibold">Developer</span>.
-                        I create <a
-                            class="font-mono font-semibold underline transition-colors duration-150 ease-linear underline-offset-4 hover:text-secondary/95"
-                            href="">open-source projects</a
-                        > to make development easier for everyone.
-                    </p>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <Title
-                        class="self-start font-mono text-2xl font-bold cursor-default hover:bg-accent hover:text-accent-invert"
-                        title="Contact me"
-                        speed={10}
-                        client:load
-                    />
-                    <div class="flex gap-2">
-                        {
-                            socials.map((social) => (
-                                <button class="p-1 transition-colors duration-150 ease-in-out rounded-md cursor-pointer hover:bg-secondary/80 active:bg-secondary group">
-                                    <Icon
-                                        name={social.icon}
-                                        class="w-12 h-12 transition-colors duration-150 ease-in-out group-hover:text-primary group-hover:animate-bounce"
-                                    />
-                                </button>
-                            ))
-                        }
-                    </div>
-                </div>
-            </div>
-        </section>
+        <HeroSection />
 
-        <GithubSection
-            repos={import.meta.env.PROD ? repos : reposTest}
-            client:load
-        />
+        <GithubSection repos={repos} client:idle />
 
-        <ItchSection games={updated} client:load />
+        <ItchSection games={itchio} client:idle />
     </div>
+    <!-- 
+    <img
+        src="https://raw.githubusercontent.com/pwnedu/ScriptEditor/main/Documentation~/Images/thumbnail.png"
+    /> -->
 </Layout>
 
-<!-- <script>
-    const res = await fetch(
-        "https://api.allorigins.win/raw?url=https://itch.io/api/1/cKeF3YA1A6LZDWg200Cdb65RcRVss5CJqMGfSNQz/my-games"
-    );
-    const ress = await res.json();
-    console.log(ress);
-</script> -->
+<script>
+    const lightAvatar = "/images/avatar_light.png";
+    const darkAvatar = "/images/avatar.png";
+</script>

@@ -9,6 +9,12 @@
       "@styles/*": [
         "src/styles/*"
       ],
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@helpers/*": [
+        "src/helpers/*"
+      ],
     }
   }
 }
