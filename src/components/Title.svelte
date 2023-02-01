@@ -6,7 +6,7 @@
     export let afterTitle: string = title;
     export let speed: number = 30;
     export let fireOnce: boolean = false;
-    export let delay: number = 0;
+    export let inviewEffect: boolean = true;
 
     let element;
     let interval;
@@ -54,8 +54,8 @@
     on:mouseover={effect}
     class={$$props.class}
     use:inview={options}
-    on:enter={effect}
-    on:leave={reset}
+    on:enter={(e) => (inviewEffect ? effect(e) : null)}
+    on:leave={(e) => (inviewEffect ? reset(e) : null)}
 >
     {title}
 </svelte:element>
