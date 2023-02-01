@@ -15,6 +15,7 @@
             repos = import.meta.env.PROD
                 ? await getAllGithubRepos()
                 : repoDummy;
+            console.log("fetched new data");
         }, interval);
     });
 
