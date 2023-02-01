@@ -11,6 +11,7 @@
         --accent-invert: 0 0% 0%;
 
         --bg-color: var(--primary-color);
+        --avatar: url('/images/avatar.png');
     }
 
     [data-theme="light"] {
@@ -21,6 +22,7 @@
         --accent-invert: 0 0% 100%;
 
         --bg-color: var(--primary-color);
+        --avatar: url('/images/avatar_light.png');
     }
 
     [data-theme="blue"] {
@@ -31,6 +33,8 @@
         --accent-invert: 0 0% 100%;
 
         --bg-color: 196 64% 24%;
+        --avatar: url('/images/avatar.png');
+
     }
 }
 

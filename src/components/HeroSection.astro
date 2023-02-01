@@ -61,3 +61,23 @@ const socials = [
         </div>
     </div>
 </section>
+
+<script>
+    const lightAvatar = "/images/avatar_light.png";
+    const darkAvatar = "/images/avatar.png";
+    const img: HTMLImageElement = document.querySelector(".avatar");
+
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+        if (localStorage.getItem("item") === "light") {
+            img.src = lightAvatar;
+        } else {
+            img.src = darkAvatar;
+        }
+    } else {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            img.src = darkAvatar;
+        } else {
+            img.src = lightAvatar;
+        }
+    }
+</script>

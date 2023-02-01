@@ -4,14 +4,24 @@
     const themes = ["dark", "light", "blue"];
 
     let html: HTMLElement;
+    let avatar: HTMLImageElement;
+
+    const lightAvatar = "/images/avatar_light.png";
+    const darkAvatar = "/images/avatar.png";
 
     function changeTheme(newTheme: string) {
         html.dataset.theme = newTheme;
         localStorage.setItem("theme", newTheme);
+        if (newTheme === "light") {
+            avatar.src = lightAvatar;
+        } else {
+            avatar.src = darkAvatar;
+        }
     }
 
     onMount(() => {
         html = document.documentElement;
+        avatar = document.querySelector(".avatar");
     });
 </script>
 
