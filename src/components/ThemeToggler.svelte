@@ -22,6 +22,21 @@
     onMount(() => {
         html = document.documentElement;
         avatar = document.querySelector(".avatar");
+
+        if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme")
+        ) {
+            if (localStorage.getItem("item") === "light") {
+                avatar.src = lightAvatar;
+            }
+        } else {
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                avatar.src = darkAvatar;
+            } else {
+                avatar.src = lightAvatar;
+            }
+        }
     });
 </script>
 
