@@ -15,10 +15,10 @@ permissions:
   id-token: write
 
 jobs:
-  env:
-    ITCH_API: cKeF3YA1A6LZDWg200Cdb65RcRVss5CJqMGfSNQz
   build:
     runs-on: ubuntu-latest
+    env:
+      ITCH_API: cKeF3YA1A6LZDWg200Cdb65RcRVss5CJqMGfSNQz
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
