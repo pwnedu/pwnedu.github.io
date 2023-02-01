@@ -9,7 +9,7 @@
     const name = repo.name;
     const description = repo.description;
     const stars = repo.stargazers_count;
-    const watchers = repo.watchers_count;
+    const watchers = repo.watchers;
     const url = repo.html_url;
     async function getImg() {
         const imgSrc = `${url}/blob/main/Documentation~/Images/thumbnail.png`
