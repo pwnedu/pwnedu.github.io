@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      ITCH_API: cKeF3YA1A6LZDWg200Cdb65RcRVss5CJqMGfSNQz
+      ITCH_API: ${{ secrets.ITCH_API }}
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
