@@ -6,18 +6,22 @@
     import Watcher from "./icons/Watcher.svelte";
 
     export let repo;
-    const name = repo.name;
-    const description = repo.description;
-    const stars = repo.stargazers_count;
-    const watchers = repo.watchers;
-    const url = repo.html_url;
+
+    // const name = repo.name;
+    // const description = repo.description;
+    // const stars = repo.stargazers_count;
+    // const watchers = repo.watchers;
+    // const url = repo.html_url;
+    $: ({ name, description, stargazers_count, watchers, html_url, language } =
+        repo);
     async function getImg() {
-        const imgSrc = `${url}/blob/main/Documentation~/Images/thumbnail.png`
-            .replace(
-                "https://github.com/",
-                "https://raw.githubusercontent.com/"
-            )
-            .replace("blob/", "");
+        const imgSrc =
+            `${html_url}/blob/main/Documentation~/Images/thumbnail.png`
+                .replace(
+                    "https://github.com/",
+                    "https://raw.githubusercontent.com/"
+                )
+                .replace("blob/", "");
         const result = await fetch(imgSrc);
 
         if (result.ok) {
@@ -28,7 +32,6 @@
     }
     const createdAt = repo.created_at;
     const updatedAt = repo.updated_at;
-    const language = repo.language;
 
     let audioHover;
 
@@ -46,7 +49,7 @@
 
 <a
     class="flex gap-4 p-4 transition-all duration-150 ease-linear outline outline-2 outline-secondary/10 hover:outline-secondary/20 hover:-translate-y-2 group"
-    href={url}
+    href={html_url}
     target="_blank"
     rel="noreferrer"
     on:mouseover={hover}
@@ -78,7 +81,7 @@
                     <Star
                         class="w-6 h-6 transition-colors duration-150 ease-in-out fill-secondary group-hover:text-yellow-400"
                     />
-                    {stars}
+                    {stargazers_count}
                 </span>
                 <span class="flex items-center gap-1">
                     <Watcher
