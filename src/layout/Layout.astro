@@ -7,7 +7,25 @@ import "../styles/master.css";
 <html lang="en" data-theme="blue">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <meta name="title" content="Pwnedu" />
@@ -49,6 +67,9 @@ import "../styles/master.css";
 
 <script>
     const html = document.documentElement;
+    const avatar = document.querySelector(".avatar");
+    const lightAvatar = "/images/avatar_light.png";
+    const darkAvatar = "/images/avatar.png";
 
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
         html.dataset.theme = localStorage.getItem("theme");
@@ -58,5 +79,9 @@ import "../styles/master.css";
         } else {
             html.dataset.theme = "light";
         }
+    }
+
+    if (html.dataset.theme === "light") {
+        avatar.src = lightAvatar;
     }
 </script>
