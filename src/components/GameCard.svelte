@@ -1,11 +1,29 @@
 <script lang="ts">
-    import Test from "./Test.svelte";
-    import Title from "./Title.svelte";
+    import { onMount } from "svelte";
 
     export let game;
+
+    let audioHover;
+
+    function hover(e) {
+        if (audioHover) {
+            audioHover.volume = 0.2;
+            audioHover.play();
+        }
+    }
+
+    onMount(() => {
+        audioHover = new Audio("/sound.wav");
+    });
 </script>
 
-<a href={game.url} class="relative group" target="_blank" rel="noreferrer">
+<a
+    href={game.url}
+    class="relative group"
+    target="_blank"
+    rel="noreferrer"
+    on:mouseenter={hover}
+>
     <div class="overflow-hidden">
         <img
             src={game.cover_url}
