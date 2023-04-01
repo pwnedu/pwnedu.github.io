@@ -1,8 +1,8 @@
 ---
 import Layout from "../layout/Layout.astro";
-import GamesSection from "@components/games-section.svelte";
-import GithubSection from "@components/github-section.svelte";
-import HeroSection from "@components/hero-section.astro";
+import Games from "@components/Games.svelte";
+import Github from "@components/Github.svelte";
+import Hero from "@components/Hero.astro";
 import getAllGithubRepos from "@helpers/repositories";
 import getAllItchProjects from "@helpers/games";
 
@@ -13,10 +13,10 @@ const itchio = await getAllItchProjects();
 
 <Layout>
     <div class="flex flex-col gap-8">
-        <HeroSection />
+        <Hero />
 
-        <GithubSection repos={repos} client:idle />
+        <Github repos={repos} client:idle />
 
-        <GamesSection games={itchio} client:idle />
+        <Games games={itchio} client:idle />
     </div>
 </Layout>

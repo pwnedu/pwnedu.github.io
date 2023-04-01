@@ -4,8 +4,6 @@
 
     const themes = extractThemes();
 
-    console.log(themes);
-
     let html: HTMLElement;
     let avatar: HTMLImageElement;
 

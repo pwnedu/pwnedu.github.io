@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Card from "@components/card.svelte";
-    import Heading from "@components/heading.svelte";
+    import RepoCard from "@components/RepoCard.svelte";
+    import Heading from "@components/Heading.svelte";
     import { flip } from "svelte/animate";
     import { onMount } from "svelte";
     import getAllGithubRepos from "@helpers/repositories";
@@ -36,7 +36,7 @@
     <ul class="grid grid-flow-row gap-4 md:grid-cols-2">
         {#each repos as repo (repo.name)}
             <div animate:flip={{ duration: 200 }}>
-                <Card {repo} />
+                <RepoCard {repo} />
             </div>
         {/each}
     </ul>
