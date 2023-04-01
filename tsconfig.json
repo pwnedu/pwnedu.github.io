@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
+    "isolatedModules": false,
     "baseUrl": ".",
     "paths": {
       "@components/*": [
