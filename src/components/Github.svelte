@@ -1,6 +1,6 @@
 <script lang="ts">
     import RepoCard from "@components/RepoCard.svelte";
-    import Heading from "@components/Heading.svelte";
+    import Title from "@components/Title.svelte";
     import { flip } from "svelte/animate";
     import { onMount } from "svelte";
     import getAllGithubRepos from "@helpers/repositories";
@@ -23,7 +23,7 @@
 
 <section class="space-y-4">
     <div class="flex justify-between">
-        <Heading
+        <Title
             class="inline-block px-4 font-mono text-2xl font-bold cursor-default hover:bg-accent hover:text-accent-invert"
             title="GitHub Projects"
             speed={20}

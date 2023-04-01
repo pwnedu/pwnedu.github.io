@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon";
-import Heading from "@components/Heading.svelte";
+import Title from "@components/Title.svelte";
 const socials = [
     {
         name: "Discord",
@@ -25,7 +25,7 @@ const socials = [
         <div class="flex flex-col gap-2">
             <span class="text-4xl">
                 Hey <span>&#128075;</span> I am
-                <Heading
+                <Title
                     title="Kiltec"
                     afterTitle="Pwnedu"
                     inviewEffect={false}
@@ -43,7 +43,7 @@ const socials = [
             </p>
         </div>
         <div class="flex flex-col gap-2">
-            <Heading
+            <Title
                 class="self-start font-mono text-2xl font-bold cursor-default hover:bg-accent hover:text-accent-invert"
                 title="Contact me"
                 speed={10}

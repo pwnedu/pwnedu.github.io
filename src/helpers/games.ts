@@ -14,10 +14,4 @@ export default async function getAllItchProjects() {
     const result = parsedResult.data.games.filter(game => game.published === true)
 
     return result
-    let itchio = await fetch(
-        `https://itch.io/api/1/${import.meta.env.ITCH_API}/my-games`
-    ).then((res) => res.json());
-    itchio = itchio["games"].filter((game) => game.published === true);
-
-    return itchio
 }

@@ -1,7 +1,7 @@
 <script>
     import { flip } from "svelte/animate";
     import GameCard from "@components/GameCard.svelte";
-    import Heading from "@components/Heading.svelte";
+    import Title from "./Title.svelte";
 
     export let games = [];
 
@@ -12,7 +12,7 @@
 
 <section class="space-y-4">
     <div class="flex justify-between">
-        <Heading
+        <Title
             class="inline-block px-4 font-mono text-2xl font-bold cursor-default hover:bg-accent hover:text-accent-invert"
             title="Game Projects"
             speed={20}
