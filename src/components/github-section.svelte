@@ -1,20 +1,17 @@
 <script lang="ts">
-    import Card from "@components/Card.svelte";
-    import Title from "@components/Title.svelte";
+    import Card from "@components/card.svelte";
+    import Heading from "@components/heading.svelte";
     import { flip } from "svelte/animate";
     import { onMount } from "svelte";
-    import getAllGithubRepos from "@helpers/fetchGithubProjects";
-    import { repoDummy } from "@data/repoDummy";
+    import getAllGithubRepos from "@helpers/repositories";
 
     export let repos = [];
     export let interval = 300000;
 
     onMount(async () => {
-        repos = import.meta.env.PROD ? await getAllGithubRepos() : repoDummy;
+        repos = await getAllGithubRepos();
         setInterval(async () => {
-            repos = import.meta.env.PROD
-                ? await getAllGithubRepos()
-                : repoDummy;
+            repos = await getAllGithubRepos();
             console.log("fetched new data");
         }, interval);
     });
@@ -26,7 +23,7 @@
 
 <section class="space-y-4">
     <div class="flex justify-between">
-        <Title
+        <Heading
             class="inline-block px-4 font-mono text-2xl font-bold cursor-default hover:bg-accent hover:text-accent-invert"
             title="GitHub Projects"
             speed={20}
