@@ -1,41 +1,6 @@
+@import 'themes.css';
 @tailwind base;
 
-@layer base {
-
-    :root,
-    [data-theme="dark"] {
-        --primary-color: 0 0% 0%;
-        --secondary-color: 0 0% 100%;
-
-        --accent-color: 0 0% 100%;
-        --accent-invert: 0 0% 0%;
-
-        --bg-color: var(--primary-color);
-        --avatar: url('/images/avatar.png');
-    }
-
-    [data-theme="light"] {
-        --primary-color: 0 0% 100%;
-        --secondary-color: 0 0% 0%;
-
-        --accent-color: 0 0% 0%;
-        --accent-invert: 0 0% 100%;
-
-        --bg-color: var(--primary-color);
-        --avatar: url('/images/avatar_light.png');
-    }
-
-    [data-theme="blue"] {
-        --primary-color: 0 0% 0%;
-        --secondary-color: 0 0% 100%;
-
-        --accent-color: 189 94% 43%;
-        --accent-invert: 0 0% 100%;
-
-        --bg-color: 196 64% 24%;
-        --avatar: url('/images/avatar.png');
-    }
-}
 
 html,
 body {

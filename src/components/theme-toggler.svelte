@@ -1,7 +1,10 @@
 <script lang="ts">
+    import extractThemes from "src/scripts/extract-themes";
     import { onMount } from "svelte";
 
-    const themes = ["dark", "light", "blue"];
+    const themes = extractThemes();
+
+    console.log(themes);
 
     let html: HTMLElement;
     let avatar: HTMLImageElement;
