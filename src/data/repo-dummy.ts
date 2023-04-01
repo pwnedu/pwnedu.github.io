@@ -1,4 +1,6 @@
-export const repoDummy = [
+import { Repositories } from "@helpers/types";
+
+export const data: Repositories = [
     {
         name: "Repo Name 01",
         description: "Description Test",
@@ -6,6 +8,7 @@ export const repoDummy = [
         watchers_count: 6,
         html_url: "https://github.com/pwnedu/ScriptEditor",
         language: "HTML",
+        watchers: 5
     },
     {
         name: "Repo Name 2",
@@ -14,6 +17,7 @@ export const repoDummy = [
         watchers_count: 6,
         html_url: "https://github.com/pwnedu/MyNotes",
         language: "HTML",
+        watchers: 5
     },
     {
         name: "Repo Name 3",
@@ -22,6 +26,7 @@ export const repoDummy = [
         watchers_count: 6,
         html_url: "google.com",
         language: "HTML",
+        watchers: 5
     },
     {
         name: "Repo Name 4",
@@ -30,6 +35,7 @@ export const repoDummy = [
         watchers_count: 6,
         html_url: "google.com",
         language: "HTML",
+        watchers: 5
     },
     {
         name: "Repo Name 5",
@@ -38,6 +44,7 @@ export const repoDummy = [
         watchers_count: 6,
         html_url: "google.com",
         language: "HTML",
+        watchers: 5
     },
     {
         name: "Repo Name 6",
@@ -46,5 +53,6 @@ export const repoDummy = [
         watchers_count: 6,
         html_url: "google.com",
         language: "HTML",
+        watchers: 5
     },
 ];
