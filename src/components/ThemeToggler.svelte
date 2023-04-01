@@ -1,5 +1,5 @@
 <script lang="ts">
-    import extractThemes from "src/scripts/extract-themes";
+    import extractThemes from "../scripts/extract-themes";
     import { onMount } from "svelte";
 
     const themes = extractThemes();

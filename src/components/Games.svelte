@@ -1,7 +1,7 @@
 <script>
     import { flip } from "svelte/animate";
-    import GameCard from "./GameCard.svelte";
-    import Heading from "./Heading.svelte";
+    import GameCard from "@components/GameCard.svelte";
+    import Heading from "@components/Heading.svelte";
 
     export let games = [];
 
