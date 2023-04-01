@@ -3,4 +3,4 @@
 ## Installation
 
 
-## How to change things
+## Theming
