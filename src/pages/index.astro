@@ -1,13 +1,12 @@
 ---
 import Layout from "../layout/Layout.astro";
-import ItchSection from "@components/ItchSection.svelte";
-import GithubSection from "@components/GithubSection.svelte";
-import HeroSection from "@components/HeroSection.astro";
-import getAllGithubRepos from "@helpers/fetchGithubProjects";
-import { repoDummy } from "src/data/repoDummy";
-import getAllItchProjects from "@helpers/fetchItchProjects";
+import GamesSection from "@components/games-section.svelte";
+import GithubSection from "@components/github-section.svelte";
+import HeroSection from "@components/hero-section.astro";
+import getAllGithubRepos from "@helpers/repositories";
+import getAllItchProjects from "@helpers/games";
 
-let repos = import.meta.env.PROD ? await getAllGithubRepos() : repoDummy;
+const repos = await getAllGithubRepos();
 
 const itchio = await getAllItchProjects();
 ---
@@ -18,6 +17,6 @@ const itchio = await getAllItchProjects();
 
         <GithubSection repos={repos} client:idle />
 
-        <ItchSection games={itchio} client:idle />
+        <GamesSection games={itchio} client:idle />
     </div>
 </Layout>
