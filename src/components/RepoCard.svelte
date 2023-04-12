@@ -22,7 +22,7 @@
 </script>
 
 <a
-    class="flex gap-4 p-4 transition-all duration-150 ease-linear outline outline-2 outline-secondary/10 hover:outline-secondary/20 hover:-translate-y-2 group"
+    class="flex gap-4 p-4 transition-all duration-150 ease-linear outline outline-2 outline-secondary/30 hover:outline-secondary hover:-translate-y-2 group"
     href={repo.html_url}
     target="_blank"
     rel="noreferrer"
@@ -73,6 +73,22 @@
 </a>
 
 <style>
+    a {
+        --h-length: 0rem;
+        --v-length: 0rem;
+        --spread-radius: 0rem;
+        box-shadow: var(--h-length) var(--v-length) 0px var(--spread-radius)
+            hsl(var(--secondary-color));
+        -webkit-box-shadow: var(--h-length) var(--v-length) 0px
+            var(--spread-radius) hsl(var(--secondary-color));
+        -moz-box-shadow: var(--h-length) var(--v-length) 0px
+            var(--spread-radius) hsl(var(--secondary-color));
+    }
+    a:hover {
+        --h-length: 0.375rem;
+        --v-length: 0.375rem;
+        --spread-radius: 0.075rem;
+    }
     a > * {
         pointer-events: none;
     }
