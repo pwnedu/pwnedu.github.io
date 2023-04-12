@@ -4,7 +4,7 @@ import "../styles/master.css";
 import Footer from "@components/Footer.astro";
 ---
 
-<html lang="en" class="h-full" data-theme="blue">
+<html lang="en" class="h-screen" data-theme="blue">
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
@@ -56,9 +56,9 @@ import Footer from "@components/Footer.astro";
 
         <title>Pwnedu</title>
     </head>
-    <body class="flex flex-col text-secondary bg-main h-screen">
+    <body class="flex flex-col text-secondary bg-main min-h-screen">
         <Header />
-        <main class="flex-grow w-full px-4 py-10 mx-auto max-w-7xl h-full">
+        <main class="flex-grow w-full px-4 py-10 mx-auto max-w-7xl">
             <slot />
         </main>
         <Footer />
