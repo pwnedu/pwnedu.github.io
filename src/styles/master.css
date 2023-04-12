@@ -1,8 +1,2 @@
 @import 'themes.css';
 @tailwind base;
-
-
-html,
-body {
-    height: 100%;
-}
