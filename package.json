@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^0.18.4",
     "@astrojs/svelte": "^2.1.0",
     "@astrojs/tailwind": "^3.1.1",
     "astro": "^2.1.9",
@@ -18,5 +19,8 @@
     "svelte-inview": "^4.0.0",
     "tailwindcss": "^3.3.1",
     "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9"
   }
 }
