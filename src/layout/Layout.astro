@@ -2,6 +2,7 @@
 import Header from "@components/Header.astro";
 import "../styles/master.css";
 import Footer from "@components/Footer.astro";
+import ColorPicker from "@components/dev-tools/color-picker.svelte";
 ---
 
 <html lang="en" class="h-screen" data-theme="blue">
@@ -62,6 +63,7 @@ import Footer from "@components/Footer.astro";
             <slot />
         </main>
         <Footer />
+        <ColorPicker client:load />
     </body>
 </html>
 
