@@ -17,8 +17,18 @@ module.exports = {
 			backgroundColor: {
 				main: 'hsl(var(--bg-color) / <alpha-value> )',
 
-			}
+			},
+			typography: ({ theme }) => ({
+				test: {
+					css: {
+						'--tw-prose-body': 'hsl(var(--accent-color) / <alpha-value> )',
+						'--tw-prose-headings': 'hsl(var(--accent-color) / <alpha-value> )',
+					}
+				}
+			})
 		},
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/typography')
+	],
 }
