@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    snippet: CollectionEntry<"snippets">;
+}
+
+const { snippet } = Astro.props as Props;
+---
+
+<a
+    href={`/snippets/${snippet.slug}`}
+    class="p-2 outline outline-1 outline-secondary transition-all duration-100 ease-linear"
+>
+    <h6 class="font-bold">{snippet.data.title}</h6>
+    <span class="italic">{snippet.data.description}</span>
+</a>
+
+<style>
+    a {
+        --h-length: 0rem;
+        --v-length: 0rem;
+        --spread-radius: 0rem;
+        box-shadow: var(--h-length) var(--v-length) 0px var(--spread-radius)
+            hsl(var(--secondary-color));
+        -webkit-box-shadow: var(--h-length) var(--v-length) 0px
+            var(--spread-radius) hsl(var(--secondary-color));
+        -moz-box-shadow: var(--h-length) var(--v-length) 0px
+            var(--spread-radius) hsl(var(--secondary-color));
+    }
+    a:hover {
+        --h-length: 0.375rem;
+        --v-length: 0.375rem;
+        --spread-radius: 0.075rem;
+    }
+</style>

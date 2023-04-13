@@ -1,0 +1,38 @@
+---
+title: GDScript Tips
+description: Testing markdown using gdscript.
+tag: godot
+---
+
+## Setting icon with custom class/node
+
+```swift
+class_name Player2D, "res://Images/Sprites/image.png"
+```
+
+## Save Entire Scene
+
+```swift
+var packed_scene = PackedScene.new()
+packed_scene.pack(whatever_node_reference)
+ResourceSaver.save("res://my_scene.tscn", packed_scene)
+```
+
+## Setting ownership of the node to the parent to save contents
+
+```swift
+var new_obj = obj.instance()
+new_obj.set_owner(whatever_node_reference_you_packing)
+```
+
+## Set a scene using file inspector
+
+```swift
+export (String, FILE, "*.tscn") var scene_path = "res://Scenes/scene.tscn"
+```
+
+## Add a scene node via inspector with autocompletion
+
+```swift
+export (NodePath) onready var myNode = get_node(myNode) as TYPEOFNODE
+```

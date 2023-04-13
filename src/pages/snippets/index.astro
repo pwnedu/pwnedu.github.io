@@ -1,0 +1,13 @@
+---
+import SnippetCard from "@components/snippet-card.astro";
+import { getCollection } from "astro:content";
+import Layout from "src/layout/Layout.astro";
+
+const snippets = await getCollection("snippets");
+---
+
+<Layout>
+    <div class="flex flex-col">
+        {snippets.map((snippet) => <SnippetCard snippet={snippet} />)}
+    </div>
+</Layout>
