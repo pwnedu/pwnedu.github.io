@@ -8,7 +8,11 @@ export const data: Repositories = [
         watchers_count: 6,
         html_url: "https://github.com/pwnedu/ScriptEditor",
         language: "HTML",
-        watchers: 5
+        watchers: 5,
+        fork: false,
+        pushed_at: '2019-11-23T17:32:32Z',
+        subscribers_url: 'something',
+        readme: 'This unique set of tools for Unity includes a comprehensive list of customisation options for hierarchy, project, console and inspector windows. You can also keep track of your progress with a handy note taking window.'
     },
     {
         name: "Repo Name 2",
@@ -17,7 +21,11 @@ export const data: Repositories = [
         watchers_count: 6,
         html_url: "https://github.com/pwnedu/MyNotes",
         language: "HTML",
-        watchers: 5
+        watchers: 5,
+        fork: false,
+        pushed_at: '2019-11-23T17:32:32Z',
+        subscribers_url: 'something',
+        readme: 'This unique set of tools for Unity includes a comprehensive list of customisation options for hierarchy, project, console and inspector windows. You can also keep track of your progress with a handy note taking window.'
     },
     {
         name: "Repo Name 3",
@@ -26,7 +34,11 @@ export const data: Repositories = [
         watchers_count: 6,
         html_url: "google.com",
         language: "HTML",
-        watchers: 5
+        watchers: 5,
+        fork: false,
+        pushed_at: '2019-11-23T17:32:32Z',
+        subscribers_url: 'something',
+        readme: 'This unique set of tools for Unity includes a comprehensive list of customisation options for hierarchy, project, console and inspector windows. You can also keep track of your progress with a handy note taking window.'
     },
     {
         name: "Repo Name 4",
@@ -35,7 +47,11 @@ export const data: Repositories = [
         watchers_count: 6,
         html_url: "google.com",
         language: "HTML",
-        watchers: 5
+        watchers: 5,
+        fork: false,
+        pushed_at: '2019-11-23T17:32:32Z',
+        subscribers_url: 'something',
+        readme: 'This unique set of tools for Unity includes a comprehensive list of customisation options for hierarchy, project, console and inspector windows. You can also keep track of your progress with a handy note taking window.'
     },
     {
         name: "Repo Name 5",
@@ -44,7 +60,11 @@ export const data: Repositories = [
         watchers_count: 6,
         html_url: "google.com",
         language: "HTML",
-        watchers: 5
+        watchers: 5,
+        fork: false,
+        pushed_at: '2019-11-23T17:32:32Z',
+        subscribers_url: 'something',
+        readme: 'This unique set of tools for Unity includes a comprehensive list of customisation options for hierarchy, project, console and inspector windows. You can also keep track of your progress with a handy note taking window.'
     },
     {
         name: "Repo Name 6",
@@ -53,6 +73,10 @@ export const data: Repositories = [
         watchers_count: 6,
         html_url: "google.com",
         language: "HTML",
-        watchers: 5
+        watchers: 5,
+        fork: false,
+        pushed_at: '2019-11-23T17:32:32Z',
+        subscribers_url: 'something',
+        readme: 'This unique set of tools for Unity includes a comprehensive list of customisation options for hierarchy, project, console and inspector windows. You can also keep track of your progress with a handy note taking window.'
     },
 ];

@@ -11,7 +11,8 @@ const RepositoriesSchema = z.object({
     subscribers_url: z.string(),
     language: z.string().nullable().optional(),
     watchers: z.number().optional(),
-    fork: z.boolean()
+    fork: z.boolean(),
+    readme: z.string().optional()
 }).array()
 
 const RepositorySchema = RepositoriesSchema.element

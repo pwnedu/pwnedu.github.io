@@ -1,5 +1,6 @@
 import { data } from "@data/repo-dummy";
 import { RepositoriesSchema, Repositories } from "./types";
+import fm from "front-matter";
 
 const REPO_URL = "https://api.github.com/users/pwnedu/repos"
 
@@ -23,12 +24,11 @@ export default async function getAllGithubRepos(): Promise<Repositories> {
     let result = await Promise.all(sortedResult.map(async res => {
         res.watchers = await getWatchersCount(res.subscribers_url)
         res.img_url = await getThumbnailFromRepo(res.html_url)
+        res.readme = await getReadme(res.html_url)
         return res
     }))
 
     result = result.filter(res => res.watchers > 0)
-
-    console.log(result)
 
     return result;
 }
@@ -54,4 +54,19 @@ export async function getThumbnailFromRepo(url: string): Promise<string> {
     }
 
     return imgURL
+}
+
+export async function getReadme(url: string): Promise<string> {
+    const modifyUrl = `${url}/main/README.md`
+    const cleanUrl = modifyUrl.replace('https://github.com/', 'https://raw.githubusercontent.com/')
+    const response = await fetch(cleanUrl)
+    const result = await response.text()
+
+    const frontmatter = fm(result).attributes?.Description
+
+    if (frontmatter !== "") {
+        return frontmatter
+    }
+
+    return ""
 }
