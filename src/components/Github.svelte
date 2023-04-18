@@ -4,8 +4,9 @@
     import { flip } from "svelte/animate";
     import { onMount } from "svelte";
     import getAllGithubRepos from "@helpers/repositories";
+    import type { Repositories } from "@helpers/types";
 
-    export let repos = [];
+    export let repos: Repositories = [];
     export let interval = 300000;
 
     onMount(async () => {
