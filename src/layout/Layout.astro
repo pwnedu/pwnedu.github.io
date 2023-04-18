@@ -59,7 +59,9 @@ import ColorPicker from "@components/dev-tools/color-picker.svelte";
     </head>
     <body class="flex flex-col text-secondary bg-main min-h-screen">
         <Header />
-        <main class="flex-grow w-full px-4 py-10 mx-auto max-w-7xl h-full">
+        <main
+            class="flex-grow w-full px-4 py-10 mx-auto max-w-7xl h-full overflow-x-hidden"
+        >
             <slot />
         </main>
         <Footer />
