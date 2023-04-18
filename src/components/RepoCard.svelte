@@ -1,6 +1,7 @@
 <script lang="ts">
-    import { Repository } from "@helpers/types";
+    import type { Repository } from "@helpers/types";
     import { onMount } from "svelte";
+    import { fly } from "svelte/transition";
     import Language from "./icons/Language.svelte";
     import Star from "./icons/Star.svelte";
     import Watcher from "./icons/Watcher.svelte";
@@ -8,12 +9,18 @@
     export let repo: Repository;
 
     let audioHover;
+    let isHover = false;
 
     function hover(e) {
+        isHover = true;
         if (audioHover) {
             audioHover.volume = 0.2;
             audioHover.play();
         }
+    }
+
+    function changeHoverState(e) {
+        isHover = !isHover;
     }
 
     onMount(() => {
@@ -22,13 +29,25 @@
 </script>
 
 <a
-    class="flex gap-4 p-4 transition-all duration-150 ease-linear outline outline-2 outline-secondary/30 hover:outline-secondary hover:-translate-y-2 group"
+    class="relative flex gap-4 p-4 transition-all duration-150 ease-linear outline outline-2 outline-secondary/30 hover:outline-secondary hover:-translate-y-2 group"
     href={repo.html_url}
     target="_blank"
     rel="noreferrer"
     on:mouseover={hover}
+    on:mouseleave={changeHoverState}
     on:focus={hover}
 >
+    <!-- Tooltip -->
+    {#if isHover && repo.readme !== ""}
+        <div
+            transition:fly={{ y: 100, duration: 150 }}
+            class="absolute bg-main/95 border-2 border-secondary top-0 right-0 left-0 -translate-y-[110%] translate-x-10 z-[9999] p-2 font-mono italic"
+        >
+            {repo.readme}
+        </div>
+    {/if}
+    <!-- Tooltip End-->
+
     <div class="rounded-sm overflow-hidden w-48">
         {#if repo.img_url !== ""}
             <img
