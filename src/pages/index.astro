@@ -15,7 +15,7 @@ const itchio = await getAllItchProjects();
     <div class="flex flex-col gap-8">
         <Hero />
 
-        <Github repos={repos} client:idle />
+        <Github repos={repos} client:load />
 
         <Games games={itchio} client:idle />
     </div>
