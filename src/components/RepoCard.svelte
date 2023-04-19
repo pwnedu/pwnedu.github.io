@@ -29,7 +29,7 @@
 </script>
 
 <a
-    class="relative flex gap-4 p-4 transition-all duration-150 ease-linear outline outline-2 outline-secondary/30 hover:outline-secondary hover:-translate-y-2 group"
+    class="relative flex gap-4 p-4 transition-all duration-150 ease-linear outline outline-2 outline-secondary/30 hover:outline-secondary group"
     href={repo.html_url}
     target="_blank"
     rel="noreferrer"
@@ -41,9 +41,17 @@
     {#if isHover && repo.readme !== ""}
         <div
             transition:fly={{ y: 100, duration: 150 }}
-            class="absolute bg-main/95 border-2 border-secondary top-0 right-0 left-0 -translate-y-[110%] translate-x-10 z-[9999] p-2 font-mono italic"
+            class="absolute flex flex-col items-center bg-main/90 border-2 border-secondary top-0 right-0 left-0 -translate-y-[110%] z-[9999] p-2 font-mono"
         >
-            {repo.readme}
+            <img
+                src={`https://github.com/pwnedu/UnityTools/blob/main/Documentation~/Images/thumbnail.png?raw=true`}
+                alt={repo.name}
+                class="h-full w-72"
+            />
+            <h6 class="self-start font-bold my-2 tracking-widest">
+                Package Description:
+            </h6>
+            <span class="italic">{repo.readme}</span>
         </div>
     {/if}
     <!-- Tooltip End-->
