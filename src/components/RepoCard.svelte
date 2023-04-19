@@ -7,7 +7,9 @@
     import Watcher from "./icons/Watcher.svelte";
 
     export let repo: Repository;
-
+    let imageUrl = import.meta.env.PROD
+        ? repo.img_url?.replace("thumbnail", "screenshot")
+        : "https://github.com/pwnedu/ScriptEditor/blob/main/Documentation~/Images/thumbnail.png?raw=true";
     let audioHover;
     let isHover = false;
 
@@ -44,9 +46,11 @@
             class="absolute flex flex-col items-center bg-main/90 border-2 border-secondary top-0 right-0 left-0 -translate-y-[110%] z-[9999] p-2 font-mono"
         >
             <img
-                src={repo.img_url?.replace("thumbnail", "screenshot")}
+                src={imageUrl}
                 alt={repo.name}
-                class="h-full w-72"
+                class="h-64 w-72 aspect-video"
+                width="288"
+                height="256"
             />
             <h6 class="self-start font-bold my-2 tracking-widest">
                 Package Description:
