@@ -43,7 +43,11 @@
             transition:fly={{ y: 100, duration: 150 }}
             class="absolute flex flex-col items-center bg-main/90 border-2 border-secondary top-0 right-0 left-0 -translate-y-[110%] z-[9999] p-2 font-mono"
         >
-            <img src={repo.img_url} alt={repo.name} class="h-full w-72" />
+            <img
+                src={repo.img_url?.replace("thumbnail", "screenshot")}
+                alt={repo.name}
+                class="h-full w-72"
+            />
             <h6 class="self-start font-bold my-2 tracking-widest">
                 Package Description:
             </h6>
