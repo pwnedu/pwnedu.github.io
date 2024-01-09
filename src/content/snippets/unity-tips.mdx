@@ -1,0 +1,31 @@
+---
+title: Unity Tips
+description: Testing markdown using c#.
+tag: Unity
+---
+
+## Useful Debugging Information
+
+```swift
+    Debug.Log($"<color=red>Important Title</color> Variable Description {variable}", contextObject);
+```
+
+## Scriptable Settings Singleton custom class example
+
+```swift
+    [FilePath("Config/MySettings.asset", FilePathAttribute.Location.PreferencesFolder)]
+    public class MySettings : ScriptableSingleton<MySettings>
+    {
+        [SerializeField] private bool _myThingEnabled = true;
+
+        public bool MyThingEnabled 
+        { 
+            get => _myThingEnabled;
+            set 
+            {
+                _myThingEnabled = value;
+                Save(true);
+            } 
+        }
+    }
+```
