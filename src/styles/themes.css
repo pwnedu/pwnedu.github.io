@@ -31,3 +31,14 @@
     --bg-color: 196 64% 24%;
     --avatar: url('/images/avatar.png');
 }
+
+[data-theme="lime"] {
+    --primary-color: 0 100% 50%;
+    --secondary-color: 258 100% 50%;
+
+    --accent-color: 247 100% 50%;
+    --accent-invert: 0 0% 100%;
+
+    --bg-color: 87 100% 50%;
+    --avatar: url('/images/avatar.png');
+}
