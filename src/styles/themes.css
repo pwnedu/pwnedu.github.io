@@ -21,6 +21,17 @@
     --avatar: url('/images/avatar_light.png');
 }
 
+[data-theme="crimson"] {
+    --primary-color: 0 0% 52%;
+    --secondary-color: 0 74% 83%;
+
+    --accent-color: 358 100% 15%;
+    --accent-invert: 354 64% 67%;
+
+    --bg-color: 358 100% 21%;
+    --avatar: url('/images/avatar.png');
+}
+
 [data-theme="blue"] {
     --primary-color: 0 0% 0%;
     --secondary-color: 0 0% 100%;
