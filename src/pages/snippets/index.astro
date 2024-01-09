@@ -9,6 +9,7 @@ const snippets = await getCollection("snippets");
 <Layout>
     <div class="flex flex-col">
         {snippets.map((snippet) => <SnippetCard snippet={snippet} />)}
-        <br><br>
+
     </div>
+    <br><br>
 </Layout>
