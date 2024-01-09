@@ -10,17 +10,6 @@
     --avatar: url('/images/avatar.png');
 }
 
-[data-theme="light"] {
-    --primary-color: 0 0% 100%;
-    --secondary-color: 0 0% 0%;
-
-    --accent-color: 0 0% 0%;
-    --accent-invert: 0 0% 100%;
-
-    --bg-color: var(--primary-color);
-    --avatar: url('/images/avatar_light.png');
-}
-
 [data-theme="crimson"] {
     --primary-color: 0 0% 52%;
     --secondary-color: 0 74% 83%;
@@ -52,4 +41,15 @@
 
     --bg-color: 87 100% 50%;
     --avatar: url('/images/avatar.png');
+}
+
+[data-theme="light"] {
+    --primary-color: 0 0% 100%;
+    --secondary-color: 0 0% 0%;
+
+    --accent-color: 0 0% 0%;
+    --accent-invert: 0 0% 100%;
+
+    --bg-color: var(--primary-color);
+    --avatar: url('/images/avatar_light.png');
 }
