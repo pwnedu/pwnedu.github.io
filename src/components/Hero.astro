@@ -5,10 +5,52 @@ const socials = [
     {
         name: "Discord",
         icon: "ic:baseline-discord",
+        href: "https://discordlookup.com/user/337817041115545603"
     },
     {
         name: "GitHub",
         icon: "mdi:github",
+        href: "https://github.com/pwnedu",
+    },
+    {
+        name: "PasteBin",
+        icon: "mdi:code",
+        href: "https://pastebin.com/u/kiltec",
+    },
+    {
+        name: "Steam",
+        icon: "mdi:steam",
+        href: "https://steamcommunity.com/id/_kiltec",
+    },
+    {
+        name: "Itch",
+        icon: "mdi:games",
+        href: "https://pwnedu.itch.io",
+    },
+    {
+        name: "YouTube",
+        icon: "mdi:youtube",
+        href: "https://www.youtube.com/channel/UCigBLKgijykJJXjEgWmL0Hw",
+    },
+    {
+        name: "Twitch",
+        icon: "mdi:twitch",
+        href: "https://www.twitch.tv/kiltec_",
+    },
+    {
+        name: "Twitter",
+        icon: "mdi:twitter",
+        href: "https://twitter.com/FaithlessPwnedu",
+    },
+    {
+        name: "Email",
+        icon: "mdi:email",
+        href: "mailto:",
+    },
+    {
+        name: "Donate",
+        icon: "mdi:paypal",
+        href: "",
     },
 ];
 ---
@@ -45,19 +87,21 @@ const socials = [
         <div class="flex flex-col gap-2">
             <Title
                 class="self-start font-mono text-2xl font-bold cursor-default hover:bg-accent hover:text-accent-invert"
-                title="Contact me"
+                title="Find me on"
                 speed={10}
                 client:load
             />
             <div class="flex gap-2">
                 {
                     socials.map((social) => (
+                        <a href={social.href}>
                         <button class="p-1 transition-colors duration-150 ease-in-out rounded-md cursor-pointer hover:bg-secondary/80 active:bg-secondary group">
                             <Icon
                                 name={social.icon}
                                 class="w-12 h-12 transition-colors duration-150 ease-in-out group-hover:text-primary group-hover:animate-bounce"
                             />
                         </button>
+                        </a>
                     ))
                 }
             </div>
