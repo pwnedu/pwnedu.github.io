@@ -21,8 +21,7 @@ const GamesSchema = z.object({
     games: z.object({
         cover_url: z.string(),
         title: z.string(),
-        published: z.boolean(),
-        url: z.string()
+        published: z.boolean()
     }).array()
 })
 
