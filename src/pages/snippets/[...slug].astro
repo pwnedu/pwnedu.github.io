@@ -4,15 +4,15 @@ import type { CollectionEntry } from "astro:content";
 import Layout from "src/layout/Layout.astro";
 
 interface Props {
-    entry: CollectionEntry<"snippets">;
+  entry: CollectionEntry<"snippets">;
 }
 
 export async function getStaticPaths() {
-    const entries = await getCollection("snippets");
-    return entries.map((entry) => ({
-        params: { slug: entry.slug },
-        props: { entry },
-    }));
+  const entries = await getCollection("snippets");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 
 const { entry } = Astro.props;
@@ -20,14 +20,18 @@ const { Content } = await entry.render();
 ---
 
 <Layout>
-    <div class="flex flex-col">
-        <!-- <h1 class="bg-gradient-to-tr from-blue-500 to-cyan-500 p-8 font-bold mb-10 text-7xl rounded-lg"> -->
-        <h1 class="bg-accent p-8 font-bold mb-10 text-7xl text-accent-invert rounded-lg">
-            {entry.data.title}
-        </h1>
-        <!-- <div class="w-full prose prose-test prose-headings:font-mono prose-lg md:prose-md lg:prose-lg"> -->
-        <div class="w-full prose-test prose-headings:font-mono prose-lg md:prose-md lg:prose-lg">
-            <Content />
-        </div>
+  <div class="flex flex-col">
+    <!-- <h1 class="bg-gradient-to-tr from-blue-500 to-cyan-500 p-8 font-bold mb-10 text-7xl rounded-lg"> -->
+    <h1
+      class="header-snippet p-8 font-bold mb-10 text-7xl text-accent-invert rounded-lg"
+    >
+      {entry.data.title}
+    </h1>
+    <!-- <div class="w-full prose prose-test prose-headings:font-mono prose-lg md:prose-md lg:prose-lg"> -->
+    <div
+      class="w-full prose-test prose-headings:font-mono prose-lg md:prose-md lg:prose-lg"
+    >
+      <Content />
     </div>
+  </div>
 </Layout>
