@@ -1,6 +1,7 @@
-import { z } from 'zod';
+import { z } from "zod";
 
-const RepositoriesSchema = z.object({
+const RepositoriesSchema = z
+  .object({
     name: z.string(),
     description: z.string(),
     stargazers_count: z.number(),
@@ -12,21 +13,24 @@ const RepositoriesSchema = z.object({
     language: z.string().nullable().optional(),
     watchers: z.number().optional(),
     fork: z.boolean(),
-    readme: z.string().optional()
-}).array()
+    readme: z.string().optional(),
+  })
+  .array();
 
-const RepositorySchema = RepositoriesSchema.element
+const RepositorySchema = RepositoriesSchema.element;
 
 const GamesSchema = z.object({
-    games: z.object({
-        cover_url: z.string(),
-        title: z.string(),
-        published: z.boolean()
-    }).array()
-})
+  games: z
+    .object({
+      url: z.string(),
+      cover_url: z.string(),
+      title: z.string(),
+      published: z.boolean(),
+    })
+    .array(),
+});
 
-
-export type Repositories = z.infer<typeof RepositoriesSchema>
-export type Repository = z.infer<typeof RepositorySchema>
-export type Games = z.infer<typeof GamesSchema>
-export { RepositoriesSchema, GamesSchema, RepositorySchema }
+export type Repositories = z.infer<typeof RepositoriesSchema>;
+export type Repository = z.infer<typeof RepositorySchema>;
+export type Games = z.infer<typeof GamesSchema>;
+export { RepositoriesSchema, GamesSchema, RepositorySchema };
