@@ -1,55 +1,70 @@
 :root,
 [data-theme="dark"] {
-    --primary-color: 0 0% 0%;
-    --secondary-color: 0 0% 100%;
+  --primary-color: 0 0% 0%;
+  --secondary-color: 0 0% 100%;
 
-    --accent-color: 0 0% 100%;
-    --accent-invert: 0 0% 0%;
+  --accent-color: 0 0% 100%;
+  --accent-invert: 0 0% 0%;
 
-    --bg-color: var(--primary-color);
-    --avatar: url('/images/avatar.png');
+  --bg-color: var(--primary-color);
+  --avatar: url("/images/avatar.png");
+
+  --header-snippet-color: linear-gradient(
+    to bottom right,
+    #348f50,
+    #56b4d3
+  ); /* You can put any gradient value or just normal hex code or color names like red without gradient*/
 }
 
 [data-theme="crimson"] {
-    --primary-color: 0 0% 52%;
-    --secondary-color: 0 74% 83%;
+  --primary-color: 0 0% 52%;
+  --secondary-color: 0 74% 83%;
 
-    --accent-color: 358 100% 15%;
-    --accent-invert: 354 64% 67%;
+  --accent-color: 358 100% 15%;
+  --accent-invert: 354 64% 67%;
 
-    --bg-color: 358 100% 21%;
-    --avatar: url('/images/avatar.png');
+  --bg-color: 358 100% 21%;
+  --avatar: url("/images/avatar.png");
+  --header-snippet-color: linear-gradient(to bottom right, #9796f0, #fbc7d4);
 }
 
 [data-theme="blue"] {
-    --primary-color: 0 0% 0%;
-    --secondary-color: 0 0% 100%;
+  --primary-color: 0 0% 0%;
+  --secondary-color: 0 0% 100%;
 
-    --accent-color: 189 94% 43%;
-    --accent-invert: 0 0% 100%;
+  --accent-color: 189 94% 43%;
+  --accent-invert: 0 0% 100%;
 
-    --bg-color: 196 64% 24%;
-    --avatar: url('/images/avatar.png');
+  --bg-color: 196 64% 24%;
+  --avatar: url("/images/avatar.png");
+  --header-snippet-color: linear-gradient(to bottom right, #536976, #292e49);
 }
 
 [data-theme="lime"] {
-    --primary-color: 0 100% 50%;
-    --secondary-color: 258 100% 50%;
+  --primary-color: 0 100% 50%;
+  --secondary-color: 258 100% 50%;
 
-    --accent-color: 247 100% 50%;
-    --accent-invert: 0 0% 100%;
+  --accent-color: 247 100% 50%;
+  --accent-invert: 0 0% 100%;
 
-    --bg-color: 87 100% 50%;
-    --avatar: url('/images/avatar.png');
+  --bg-color: 87 100% 50%;
+  --avatar: url("/images/avatar.png");
+  --header-snippet-color: linear-gradient(to bottom right, #ffe000, #799f0c);
 }
 
 [data-theme="light"] {
-    --primary-color: 0 0% 100%;
-    --secondary-color: 0 0% 0%;
+  --primary-color: 0 0% 100%;
+  --secondary-color: 0 0% 0%;
 
-    --accent-color: 0 0% 0%;
-    --accent-invert: 0 0% 100%;
+  --accent-color: 0 0% 0%;
+  --accent-invert: 0 0% 100%;
 
-    --bg-color: var(--primary-color);
-    --avatar: url('/images/avatar_light.png');
+  --bg-color: var(--primary-color);
+  --avatar: url("/images/avatar_light.png");
+  --header-snippet-color: linear-gradient(
+    to bottom right,
+    #5433ff,
+    #20bdff,
+    #a5fecb
+  );
 }

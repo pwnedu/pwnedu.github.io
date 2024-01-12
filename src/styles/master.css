@@ -1,2 +1,6 @@
-@import 'themes.css';
+@import "themes.css";
 @tailwind base;
+
+.header-snippet {
+  background: var(--header-snippet-color);
+}
