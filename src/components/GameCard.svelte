@@ -17,6 +17,7 @@
     });
 </script>
 
+<div class="overflow-hidden">
 <a
     href={game.url}
     class="relative group"
@@ -41,3 +42,4 @@
         >{game.title}</span
     >
 </a>
+</div>
