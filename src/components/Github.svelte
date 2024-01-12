@@ -30,7 +30,7 @@
             speed={20}
         />
         <button
-            class="p-1 font-mono font-bold bg-accent text-accent-invert"
+            class="p-1 font-mono font-bold bg-accent text-accent-invert hover:text-accent hover:bg-accent-invert transition-colors duration-100 ease-linear"
             on:click={shuffle}>Shuffle</button
         >
     </div>

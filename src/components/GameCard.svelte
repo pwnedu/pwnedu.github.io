@@ -15,6 +15,8 @@
     onMount(() => {
         audioHover = new Audio("/sound.wav");
     });
+
+    console.log(game)
 </script>
 
 <a
