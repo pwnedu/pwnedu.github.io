@@ -36,3 +36,9 @@ export (String, FILE, "*.tscn") var scene_path = "res://Scenes/scene.tscn"
 ```swift
 export (NodePath) onready var myNode = get_node(myNode) as TYPEOFNODE
 ```
+
+## Change background colour to black
+
+```swift
+RenderingServer.set_default_clear_color(Color(0,0,0))
+```
